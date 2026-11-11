@@ -1,0 +1,224 @@
+{
+  "setup": {
+    "train_speakers": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "test_speakers": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "templates_per_word": 10,
+    "test_utterances": 180
+  },
+  "noise": [
+    {
+      "snr_db": "clean",
+      "accuracy": 1.0,
+      "failed": 0,
+      "mean_rtf": 0.032071860784318874
+    },
+    {
+      "snr_db": 30,
+      "accuracy": 1.0,
+      "failed": 0,
+      "mean_rtf": 0.02981179933856099
+    },
+    {
+      "snr_db": 20,
+      "accuracy": 0.9944444444444445,
+      "failed": 0,
+      "mean_rtf": 0.027443862751080614
+    },
+    {
+      "snr_db": 15,
+      "accuracy": 0.9277777777777778,
+      "failed": 0,
+      "mean_rtf": 0.027506528701949782
+    },
+    {
+      "snr_db": 10,
+      "accuracy": 0.8722222222222222,
+      "failed": 0,
+      "mean_rtf": 0.02832749602585631
+    },
+    {
+      "snr_db": 5,
+      "accuracy": 0.7222222222222222,
+      "failed": 0,
+      "mean_rtf": 0.02549529337339597
+    },
+    {
+      "snr_db": 0,
+      "accuracy": 0.42777777777777776,
+      "failed": 0,
+      "mean_rtf": 0.020479589868130105
+    }
+  ],
+  "clean": {
+    "accuracy": 1.0,
+    "n": 180,
+    "n_correct": 180,
+    "n_failed": 0,
+    "mean_rtf": 0.029326533526200127,
+    "labels": [
+      "down",
+      "go",
+      "left",
+      "right",
+      "stop",
+      "up"
+    ],
+    "confusion": [
+      [
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        30,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        30,
+        0
+      ]
+    ],
+    "per_class": {
+      "down": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      },
+      "go": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      },
+      "left": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      },
+      "right": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      },
+      "up": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 30
+      }
+    }
+  },
+  "ablation": [
+    {
+      "variant": "Baseline (MFCC+energy+delta, CMVN, VAD, band 0.3, k=1)",
+      "clean": 1.0,
+      "snr10": 0.8722222222222222,
+      "clean_rtf": 0.028617112796376905
+    },
+    {
+      "variant": "No delta features",
+      "clean": 1.0,
+      "snr10": 0.85,
+      "clean_rtf": 0.027458524390402965
+    },
+    {
+      "variant": "No CMVN",
+      "clean": 0.9944444444444445,
+      "snr10": 0.2111111111111111,
+      "clean_rtf": 0.02597882077826058
+    },
+    {
+      "variant": "No VAD (whole clip)",
+      "clean": 1.0,
+      "snr10": 0.9666666666666667,
+      "clean_rtf": 0.04690142986246918
+    },
+    {
+      "variant": "Narrow band (0.1)",
+      "clean": 1.0,
+      "snr10": 0.8833333333333333,
+      "clean_rtf": 0.024877292479309268
+    },
+    {
+      "variant": "No band (full DTW)",
+      "clean": 1.0,
+      "snr10": 0.8666666666666667,
+      "clean_rtf": 0.030605089197877425
+    },
+    {
+      "variant": "k = 3 nearest templates",
+      "clean": 1.0,
+      "snr10": 0.8666666666666667,
+      "clean_rtf": 0.030049821007810843
+    }
+  ],
+  "rejection": {
+    "threshold": 4.336660181823947,
+    "known_accepted": 1.0,
+    "unknown_rejected": 1.0,
+    "n_known": 50,
+    "n_unknown": 30
+  },
+  "elapsed_s": 116.56296277046204
+}
